@@ -23,7 +23,7 @@ d_v = 256
 n_heads = 16
 ff_dim = 512
 seq_len = 128
-
+#Changes to be made to support yahoo streamer
 class DataOperation:
     def load_data(self):
         scriptcode = "RELIANCE"
