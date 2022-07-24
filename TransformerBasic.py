@@ -15,6 +15,9 @@ import locale
 import tensorflow as tf
 from tensorflow.keras.models import *
 from tensorflow.keras.layers import *
+import yfinance as yf
+from rutils.YahooData import Puller
+
 
 locale.setlocale(locale.LC_NUMERIC, '') 
 
@@ -26,9 +29,9 @@ seq_len = 128
 #Changes to be made to support yahoo streamer
 class DataOperation:
     def load_data(self):
-        scriptcode = "RELIANCE"
+        scriptcode = "BOM500325"
         api_key = "HHCBs8CFrnTXyu__s7xv"
-        self.data = quandl.get("NSE/" + scriptcode,api_key =api_key)
+        self.data = quandl.get("BSE/" + scriptcode,  start_date="2010-07-01", end_date=date.today(),api_key =api_key)
         self.data.reset_index(level=0, inplace=True)
         
     
